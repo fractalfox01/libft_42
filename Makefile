@@ -28,7 +28,7 @@ putstr:
 	gcc $(FLAG) $(PUTSTR_TEST) src/*.c -o $(PUTSTR)
 
 putchar:
-	gcc $(FLAG) $(PUTCHAR_TEST) src/*.c -o $(PUTSTR)
+	gcc $(FLAG) $(PUTCHAR_TEST) src/*.c -o $(PUTCHAR)
 
 putnbr:
 	gcc $(FLAG) $(PUTNBR_TEST) src/*.c -o $(PUTNBR)
@@ -46,7 +46,7 @@ libft:
 
 all: libft memccpy memchr putstr putchar putnbr
 
-test_all:
+testall:
 	./test/memccpy_test
 	./test/memchr_test
 	./test/putstr_test

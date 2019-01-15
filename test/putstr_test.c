@@ -7,7 +7,7 @@ int	main(void)
 	char str2[60] = "encoded as numbers using the ASCII encoding.";
 	char str3[60] = "for(ch = 'a'; ch < 'z'; ch++) { ...";
 	char str4[60] = "// ' ', '\t', '\n', '\r', '\f', or '\v'";
-	
+
 	ft_putstr(str1);
 	printf("\n");
 	ft_putstr(str2);
