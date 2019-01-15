@@ -10,6 +10,10 @@ PUTNBR_TEST= test/putnbr_test.c
 
 PUTNBR= test/putnbr_test
 
+MEMSET_TEST=  test/memset_test.c
+
+MEMSET= test/memset_test
+
 MEMCHR_TEST= test/memchr_test.c
 
 MEMCHR= test/memchr_test
@@ -36,6 +40,9 @@ putnbr:
 memchr:
 	gcc $(FLAG) $(MEMCHR_TEST) src/*.c -o $(MEMCHR)
 
+memset:
+	gcc $(FLAG) $(MEMSET_TEST) src/*.c -o $(MEMSET)
+
 memccpy:
 	gcc $(FLAG) $(MEMCCPY_TEST) src/*.c -o $(MEMCCPY)
 
@@ -44,16 +51,24 @@ libft:
 	mv *.o bin/
 	ar rcs libft.a bin/*.o
 
-all: libft memccpy memchr putstr putchar putnbr
+all: libft memset memccpy memchr putstr putchar putnbr
 
-testall:
+testall: fclean
+	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+	./test/memset_test
+	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
 	./test/memccpy_test
+	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
 	./test/memchr_test
+	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
 	./test/putstr_test
+	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
 	./test/putchar_test
+	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
 	./test/putnbr_test
 
 clean: 
+	rm $(MEMSET) 2>/dev/null || echo "not found"
 	rm $(MEMCCPY) 2>/dev/null || echo "not found"
 	rm $(MEMCHR) 2>/dev/null || echo "not found"
 	rm $(PUTSTR) 2>/dev/null || echo "not found"
