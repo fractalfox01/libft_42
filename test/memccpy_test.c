@@ -24,20 +24,20 @@ int	main(void)
 	printf("Original: %s\n", str1);
 	sptr1 = ft_memccpy(buf1, str1, 'B', 55);
 	ssptr1 = memccpy(buf2, str1, 'B', 55);
-	printf("Mine\t%s\nTheirs\t%s\n", buf1, buf2);
-	printf("mine\t%s\ntheirs\t%s\n", sptr1, ssptr1);
+	printf("Destination Mine\t%s\nDestination Theirs\t%s\n", buf1, buf2);
+	printf("Return mine\t%s\nReturn theirs\t%s\n", sptr1, ssptr1);
 
 	printf("Original: %s\n", str2);
 	sptr2 = ft_memccpy(buf3, str2, 'B', 42);
 	ssptr2 = memccpy(buf4, str2, 'B', 42);
-	printf("Mine\t%s\nTheirs\t%s\n", buf3, buf4);
-	printf("mine\t%s\ntheirs\t%s\n", sptr2, ssptr2);
+	printf("Destination Mine\t%s\nDestination Theirs\t%s\n", buf3, buf4);
+	printf("Return mine\t%s\nReturn theirs\t%s\n", sptr2, ssptr2);
 
 	printf("Original: %s\n", str3);
 	sptr3 = ft_memccpy(buf5, str3, 'c', 55);
 	ssptr3 = memccpy(buf6, str3, 'c', 55);
-	printf("Mine\t%s\nTheirs\t%s\n", buf5, buf6);
-	printf("mine\t%s\ntheirs\t%s\n", sptr3, ssptr3);
+	printf("Destination Mine\t%s\nDestination Theirs\t%s\n", buf5, buf6);
+	printf("Return mine\t%s\nReturn theirs\t%s\n", sptr3, ssptr3);
 
 	return (0);
 }
