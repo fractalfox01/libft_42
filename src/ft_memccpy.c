@@ -1,6 +1,5 @@
+#include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
-#include "../include/libft.h"
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
@@ -8,7 +7,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	char *vptr;
 
 	i = 0;
-	vptr = (char *)malloc(sizeof(char) * n);
+	vptr = (char *)malloc(sizeof(char) * (n + 1));
 	while (i < n)
 	{
 		*(char*)dest = *(char*)src;
@@ -22,11 +21,9 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 		src++;
 		i++;
 	}
-	*(char*)dest = '\0';
-	if (i == n && *(char*)src != c)
-	{
-		return (NULL);
-	}
 	vptr = (char *)dest;
+	if (i == n && *(char*)src != c)
+		return (NULL);
+	*(char *)dest = '\0';	
 	return (vptr);
 }

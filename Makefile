@@ -14,6 +14,10 @@ PUTNBR_TEST= test/putnbr_test.c
 
 PUTNBR= test/putnbr_test
 
+MEMCMP_TEST=  test/memcmp_test.c
+
+MEMCMP= test/memcmp_test
+
 MEMSET_TEST=  test/memset_test.c
 
 MEMSET= test/memset_test
@@ -47,6 +51,9 @@ putnbr:
 memchr:
 	gcc $(FLAG) $(MEMCHR_TEST) src/*.c -o $(MEMCHR)
 
+memcmp:
+	gcc $(FLAG) $(MEMCMP_TEST) src/*.c -o $(MEMCMP)
+
 memset:
 	gcc $(FLAG) $(MEMSET_TEST) src/*.c -o $(MEMSET)
 
@@ -58,9 +65,11 @@ libft:
 	mv *.o bin/
 	ar rcs libft.a bin/*.o
 
-all: libft memset memccpy memchr putstr putchar putnbr isalnum
+all: libft memset memccpy memchr putstr putchar putnbr isalnum memcmp
 
 testall: fclean
+	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+	./test/memcmp_test
 	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
 	./test/memset_test
 	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
@@ -77,13 +86,14 @@ testall: fclean
 	./test/isalnum_test
 
 clean: 
+	rm $(MEMCMP) 2>/dev/null || echo "not found"
 	rm $(MEMSET) 2>/dev/null || echo "not found"
 	rm $(MEMCCPY) 2>/dev/null || echo "not found"
 	rm $(MEMCHR) 2>/dev/null || echo "not found"
 	rm $(PUTSTR) 2>/dev/null || echo "not found"
 	rm $(PUTCHAR) 2>/dev/null || echo "not found"
 	rm $(PUTNBR) 2>/dev/null || echo "not found"
-	re $(ISALNUM) 2>/dev/null || echo "not found"
+	rm $(ISALNUM) 2>/dev/null || echo "not found"
 	rm bin/*.o 2>/dev/null || echo "not found"
 	rm libft.a || echo "not found"
 

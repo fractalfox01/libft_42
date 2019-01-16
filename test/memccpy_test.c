@@ -22,8 +22,8 @@ int	main(void)
 	char *ssptr3;
 
 	printf("Original: %s\n", str1);
-	sptr1 = ft_memccpy(buf1, str1, 'B', 55);
-	ssptr1 = memccpy(buf2, str1, 'B', 55);
+	sptr1 = ft_memccpy(buf1, str1, 'c', 55);
+	ssptr1 = memccpy(buf2, str1, 'c', 55);
 	printf("Destination Mine\t%s\nDestination Theirs\t%s\n", buf1, buf2);
 	printf("Return mine\t%s\nReturn theirs\t%s\n", sptr1, ssptr1);
 
