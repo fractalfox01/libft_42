@@ -1,3 +1,7 @@
+ISALNUM_TEST= test/isalnum_test.c
+
+ISALNUM= test/isalnum_test
+
 PUTSTR_TEST= test/putstr_test.c
 
 PUTSTR= test/putstr_test
@@ -28,6 +32,9 @@ LIBFT= libft
 
 LIBFT_PATH= include/libft.h
 
+isalnum:
+	gcc $(FLAG) $(ISALNUM_TEST) src/*.c -o $(ISALNUM)
+
 putstr:
 	gcc $(FLAG) $(PUTSTR_TEST) src/*.c -o $(PUTSTR)
 
@@ -51,7 +58,7 @@ libft:
 	mv *.o bin/
 	ar rcs libft.a bin/*.o
 
-all: libft memset memccpy memchr putstr putchar putnbr
+all: libft memset memccpy memchr putstr putchar putnbr isalnum
 
 testall: fclean
 	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
@@ -66,6 +73,8 @@ testall: fclean
 	./test/putchar_test
 	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
 	./test/putnbr_test
+	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+	./test/isalnum_test
 
 clean: 
 	rm $(MEMSET) 2>/dev/null || echo "not found"
@@ -74,6 +83,7 @@ clean:
 	rm $(PUTSTR) 2>/dev/null || echo "not found"
 	rm $(PUTCHAR) 2>/dev/null || echo "not found"
 	rm $(PUTNBR) 2>/dev/null || echo "not found"
+	re $(ISALNUM) 2>/dev/null || echo "not found"
 	rm bin/*.o 2>/dev/null || echo "not found"
 	rm libft.a || echo "not found"
 
