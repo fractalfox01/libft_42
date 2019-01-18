@@ -24,6 +24,7 @@ int ft_isascii(int nbr);
 int ft_isdigit(unsigned char str);
 int ft_isprint(unsigned char str);
 int ft_isalnum(int c);
+void *ft_memmove(void *dest, const void *src, size_t n);
 int ft_memcmp(const void *s1, const void *s2, size_t n);
 void *ft_memchr(const void *str, int c, size_t n);
 void *ft_memset(void *s, int c, size_t n);
