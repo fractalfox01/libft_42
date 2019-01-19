@@ -34,7 +34,7 @@ MEMCCPY_TEST= test/memccpy_test.c
 
 MEMCCPY= test/memccpy_test
 
-FLAG= -Wall -Werror -Wextra
+FLAG= -Wall -Werror -Wextra -g
 
 LIBFT= libft
 
@@ -53,7 +53,7 @@ putnbr:
 	gcc $(FLAG) $(PUTNBR_TEST) src/*.c -o $(PUTNBR)
 
 memmove:
-	gcc $(FLAG) $(MEMMOVE_TEST) src/*.c -o $(MEMMOVE)
+	gcc $(FLAG) $(MEMMOVE_TEST) -Llibft src/*.c -o $(MEMMOVE)
 
 memchr:
 	gcc $(FLAG) $(MEMCHR_TEST) src/*.c -o $(MEMCHR)
