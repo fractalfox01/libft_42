@@ -1,3 +1,21 @@
+PKG_FLAGS := `pkg-config --cflags gtk+-3.0`
+
+PKG_LIBS := `pkg-config --libs gtk+-3.0`
+
+LIBFT= libft
+
+GETNXTLINE= extra/getnetline
+
+GETNXTLINE_TEST= extra/get_next_line.c
+
+STRCMP= test/strcmp_test
+
+STRCMP_TEST= test/strcmp_test.c
+
+PRINTMEM= extra/print_mem
+
+PRINTMEM_TEST= extra/print_memory.c
+
 ISALNUM_TEST= test/isalnum_test.c
 
 ISALNUM= test/isalnum_test
@@ -36,43 +54,59 @@ MEMCCPY= test/memccpy_test
 
 FLAG= -Wall -Werror -Wextra -g
 
-LIBFT= libft
-
 LIBFT_PATH= include/libft.h
 
-isalnum:
-	gcc $(FLAG) $(ISALNUM_TEST) src/*.c -o $(ISALNUM)
+SRC= $(wildcard src/*.c)
 
-putstr:
-	gcc $(FLAG) $(PUTSTR_TEST) src/*.c -o $(PUTSTR)
+EXE= $(GETNXTLINE) $(ISALNUM) $(PUTSTR) $(PUTCHAR) $(PUTNBR) $(MEMMOVE) $(MEMCHR) $(MEMCMP) $(MEMSET) $(MEMCCPY) $(PRINTMEM) $(STRCMP)
 
-putchar:
-	gcc $(FLAG) $(PUTCHAR_TEST) src/*.c -o $(PUTCHAR)
-
-putnbr:
-	gcc $(FLAG) $(PUTNBR_TEST) src/*.c -o $(PUTNBR)
-
-memmove:
-	gcc $(FLAG) $(MEMMOVE_TEST) -Llibft src/*.c -o $(MEMMOVE)
-
-memchr:
-	gcc $(FLAG) $(MEMCHR_TEST) src/*.c -o $(MEMCHR)
-
-memcmp:
-	gcc $(FLAG) $(MEMCMP_TEST) src/*.c -o $(MEMCMP)
-
-memset:
-	gcc $(FLAG) $(MEMSET_TEST) src/*.c -o $(MEMSET)
-
-memccpy:
-	gcc $(FLAG) $(MEMCCPY_TEST) src/*.c -o $(MEMCCPY)
+EXE_CMD= isalnum putstr putchar putnbr memmove memchr memcmp memset memccpy printmem strcmp getnextline
 
 libft:
-	gcc -c src/*.c
+	gcc -c $(SRC)
 	mv *.o bin/
-	ar rcs libft.a bin/*.o
+	ar rcs libft.a $(SRC)
 
-all: libft memset memccpy memchr memmove putstr putchar putnbr isalnum memcmp
+getnextline:
+	gcc $(FLAG) $(GETNXTLINE_TEST) -Llibft $(SRC) -o $(GETNXTLINE)
+
+strcmp:
+	gcc $(FLAG) $(STRCMP_TEST) -Llibft $(SRC) -o $(STRCMP)
+
+printmem:
+	gcc $(FLAG) $(PRINTMEM_TEST) -Llibft $(SRC) -o $(PRINTMEM)
+
+isalnum:
+	gcc $(FLAG) $(ISALNUM_TEST) $(SRC) -o $(ISALNUM)
+
+putstr:
+	gcc $(FLAG) $(PUTSTR_TEST) $(SRC) -o $(PUTSTR)
+
+putchar:
+	gcc $(FLAG) $(PUTCHAR_TEST) $(SRC) -o $(PUTCHAR)
+
+putnbr:
+	gcc $(FLAG) $(PUTNBR_TEST) $(SRC) -o $(PUTNBR)
+
+memmove:
+	gcc $(FLAG) $(MEMMOVE_TEST) -Llibft $(SRC) -o $(MEMMOVE)
+
+memchr:
+	gcc $(FLAG) $(MEMCHR_TEST) $(SRC) -o $(MEMCHR)
+
+memcmp:
+	gcc $(FLAG) $(MEMCMP_TEST) $(SRC) -o $(MEMCMP)
+
+memset:
+	gcc $(FLAG) $(MEMSET_TEST) $(SRC) -o $(MEMSET)
+
+memccpy:
+	gcc $(FLAG) $(MEMCCPY_TEST) $(SRC) -o $(MEMCCPY)
+
+gtk:
+	gcc $(PKG_FLAGS) -o extra/gtk-window extra/gtk-window.c $(PKG_LIBS)
+
+all: libft $(EXE_CMD)
 
 testall: fclean
 	echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
@@ -95,18 +129,13 @@ testall: fclean
 	./test/isalnum_test
 
 clean: 
-	rm $(MEMMOVE) 2>/dev/null || echo "not found"
-	rm $(MEMCMP) 2>/dev/null || echo "not found"
-	rm $(MEMSET) 2>/dev/null || echo "not found"
-	rm $(MEMCCPY) 2>/dev/null || echo "not found"
-	rm $(MEMCHR) 2>/dev/null || echo "not found"
-	rm $(PUTSTR) 2>/dev/null || echo "not found"
-	rm $(PUTCHAR) 2>/dev/null || echo "not found"
-	rm $(PUTNBR) 2>/dev/null || echo "not found"
-	rm $(ISALNUM) 2>/dev/null || echo "not found"
+	for f in $(EXE) ; do \
+		rm $$f || echo "not found"; \
+	done
+	rm extra/gtk-window 2>/dev/null || echo "not found"
 	rm bin/*.o 2>/dev/null || echo "not found"
 	rm libft.a || echo "not found"
 
 fclean: clean all
 
-.PHONY: memccpy memchr all clean fclean putstr putchar putnbr
+.PHONY: fclean testall libft all clean $(EXE_CMD)

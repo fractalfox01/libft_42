@@ -6,8 +6,8 @@
 int     main(void)
 {
 	int i = 0;
-	int arr[10] = {12, 23, 34, 45, 56, 67, 78, 89, 90, 101};
-	int arr2[10] = {102, 91, 90, 79, 68, 57, 46, 35, 24, 13};
+	int arr[10] = {255, 65535, -34, +45, 56, 67, 78, 89, 90, 101};
+	int arr2[10] = {102, 91, 90, 79, 68, 57, 46, 35, 65536, 13};
 	int *arr3;
 	char tmp[22] = "g Simple Test gtring.";
         const char strsrc[22] = "A Simple Test String.";
