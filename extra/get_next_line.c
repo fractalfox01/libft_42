@@ -2,48 +2,62 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include "../include/libft.h"
+#include "../include/get_next_line.h"
 
-int	get_next_line(const int fd, char *buf, size_t FILESIZE)
+int	get_next_line(const int fd, char **arr)
 {
 	size_t i = 0;
-	if (fd > 2)
+	int nbr = 0;
+	static char *str;
+
+	str = (char *)malloc(sizeof(char) * BUFFER_SIZE);
+	if (fd)
 	{
-		read(fd, buf, FILESIZE);
-		ft_putstr("fd is: ");
-		ft_putnbr(fd);
-		ft_putstr("\n");
-		ft_putstr("buf is: ");
-		while (i < FILESIZE)
+		read(fd, str, BUFFER_SIZE);
+		while (i < BUFFER_SIZE)
 		{
-			if (*buf > 0)
+			if (*str > 0 && *str != 10)
 			{
-				ft_putchar(*buf);
+				arr[0][i] = str[i];
 				i++;
-				buf++;
 			}
 			else
 				break ;
 		}
-		ft_putstr("\n");
 		close(fd);
+		if (i == 0)
+			return (0);
+		nbr = 1;
 	}
 	else
 	{
 		ft_putstr("Error opening file.");
+		nbr = -1;
 	}
-	return (0);
+	return (nbr);
 }
 
 int	main(int argc, char **argv)
 {
 	int fd;
+	int i = 0;
 	char *buf;
-	size_t FILESIZE = 4097;
-	buf = (char *)malloc(sizeof(char) * 4097);	
+	static char **arr;
+	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE);
+	arr = buf;
 	fd = open(argv[1], O_APPEND, O_RDONLY);
 	if (argc > 1)
-	{
-		get_next_line(fd, buf, FILESIZE);
+	{	get_next_line(fd, arr);
+		while (i < 5)
+		{
+			ft_putstr(arr[i]);
+			ft_putchar('\n');
+			while (*arr)
+				arr++;
+			arr++;
+			i++;
+			get_next_line(fd, arr[i]);
+		}
 	}
 	else
 	{
