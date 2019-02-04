@@ -12,6 +12,10 @@ STRCMP= test/strcmp_test
 
 STRCMP_TEST= test/strcmp_test.c
 
+STRNCMP= test/strncmp_test
+
+STRNCMP_TEST= test/strncmp_test.c
+
 PRINTMEM= extra/print_mem
 
 PRINTMEM_TEST= extra/print_memory.c
@@ -58,9 +62,9 @@ LIBFT_PATH= include/libft.h
 
 SRC= $(wildcard src/*.c)
 
-EXE= $(GETNXTLINE) $(ISALNUM) $(PUTSTR) $(PUTCHAR) $(PUTNBR) $(MEMMOVE) $(MEMCHR) $(MEMCMP) $(MEMSET) $(MEMCCPY) $(PRINTMEM) $(STRCMP)
+EXE= $(GETNXTLINE) $(ISALNUM) $(PUTSTR) $(PUTCHAR) $(PUTNBR) $(MEMMOVE) $(MEMCHR) $(MEMCMP) $(MEMSET) $(MEMCCPY) $(PRINTMEM) $(STRCMP) $(STRNCMP)
 
-EXE_CMD= isalnum putstr putchar putnbr memmove memchr memcmp memset memccpy printmem strcmp getnextline
+EXE_CMD= isalnum putstr putchar putnbr memmove memchr memcmp memset memccpy printmem strcmp getnextline strncmp
 
 libft:
 	gcc -c $(SRC)
@@ -72,6 +76,9 @@ getnextline:
 
 strcmp:
 	gcc $(FLAG) $(STRCMP_TEST) -Llibft $(SRC) -o $(STRCMP)
+
+strncmp:
+	gcc $(FLAG) $(STRNCMP_TEST) -Llibft $(SRC) -o $(STRNCMP)
 
 printmem:
 	gcc $(FLAG) $(PRINTMEM_TEST) -Llibft $(SRC) -o $(PRINTMEM)
