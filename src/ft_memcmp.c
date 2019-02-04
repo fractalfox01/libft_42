@@ -1,23 +1,29 @@
 #include <string.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int nbr1;
-	int nbr2;
-	size_t i;
+	unsigned char	*uc1;
+	unsigned char	*uc2;
+	int		ans;
 	
-	i = 0;
-	nbr1 = 0;
-	nbr2 = 0;
-	while (i < n)
+	ans = 0;
+//	uc1 = (unsigned char *)malloc(sizeof(unsigned char) * n);
+//	uc2 = (unsigned char *)malloc(sizeof(unsigned char) * n);
+	uc1 = (unsigned char *)s1;
+	uc2 = (unsigned char *)s2;
+	while (n > 0)
 	{
-		printf("*s1 %d, *s2 %d\n", *(char *)s1, *(char *)s2);
-		nbr1 += (*(char *)s1);
-		nbr2 += (*(char *)s2);
-		(char *)s1++;
-		(char *)s2++;
-		i++;
+		if (*uc1 == *uc2)
+		{
+			ans = *uc1 - *uc2;	
+		}
+		else
+			return (*uc1 - *uc2);
+		uc1++;
+		uc2++;
+		n--;
 	}
-	return (nbr1 - nbr2);
+	return (ans);
 }
