@@ -22,8 +22,9 @@ int	main(int argc, char **argv)
 	char str15[9] = "KKKK    ";
 	char str16[9] = "        ";
 
-	size_t n = sizeof(str1);
+	size_t n = sizeof(str1) - 1;
 
+	printf("Size used for all test: %ld\n", n);
 	if (argc == 1)
 	{
 		if (ft_strncmp(str1, str2, n) == strncmp(str1, str2, n))
