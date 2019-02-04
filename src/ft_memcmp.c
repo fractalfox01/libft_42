@@ -6,24 +6,24 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*uc1;
 	unsigned char	*uc2;
-	int		ans;
+	int		nb1;
+	int		nb2;
 	
-	ans = 0;
-//	uc1 = (unsigned char *)malloc(sizeof(unsigned char) * n);
-//	uc2 = (unsigned char *)malloc(sizeof(unsigned char) * n);
+	nb1 = 0;
+	nb2 = 0;
 	uc1 = (unsigned char *)s1;
 	uc2 = (unsigned char *)s2;
 	while (n > 0)
 	{
-		if (*uc1 == *uc2)
+		if (!(*uc1 == *uc2))
 		{
-			ans = *uc1 - *uc2;	
+			nb1 += *uc1;
+			nb2 += *uc2;
+			break ;
 		}
-		else
-			return (*uc1 - *uc2);
 		uc1++;
 		uc2++;
 		n--;
 	}
-	return (ans);
+	return (nb1 - nb2);
 }
