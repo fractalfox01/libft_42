@@ -56,15 +56,19 @@ MEMCCPY_TEST= test/memccpy_test.c
 
 MEMCCPY= test/memccpy_test
 
+MEMCPY_TEST= test/memcpy_test.c
+
+MEMCPY= test/memcpy_test
+
 FLAG= -Wall -Werror -Wextra -g
 
 LIBFT_PATH= include/libft.h
 
 SRC= $(wildcard src/*.c)
 
-EXE= $(GETNXTLINE) $(ISALNUM) $(PUTSTR) $(PUTCHAR) $(PUTNBR) $(MEMMOVE) $(MEMCHR) $(MEMCMP) $(MEMSET) $(MEMCCPY) $(PRINTMEM) $(STRCMP) $(STRNCMP)
+EXE= $(GETNXTLINE) $(ISALNUM) $(PUTSTR) $(PUTCHAR) $(PUTNBR) $(MEMMOVE) $(MEMCHR) $(MEMCMP) $(MEMSET) $(MEMCCPY) $(MEMCPY) $(PRINTMEM) $(STRCMP) $(STRNCMP)
 
-EXE_CMD= isalnum putstr putchar putnbr memmove memchr memcmp memset memccpy printmem strcmp getnextline strncmp
+EXE_CMD= isalnum putstr putchar putnbr memmove memchr memcmp memset memccpy printmem strcmp getnextline strncmp memcpy
 
 libft:
 	gcc -c $(SRC)
@@ -109,6 +113,9 @@ memset:
 
 memccpy:
 	gcc $(FLAG) $(MEMCCPY_TEST) $(SRC) -o $(MEMCCPY)
+
+memcpy:
+	gcc $(FLAG) $(MEMCPY_TEST) $(SRC) -o $(MEMCPY)
 
 gtk:
 	gcc $(PKG_FLAGS) -o extra/gtk-window extra/gtk-window.c $(PKG_LIBS)
