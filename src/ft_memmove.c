@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/02/11 12:11:28 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/12 07:04:00 by tvandivi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -22,10 +34,9 @@ void	*mmcopy(const void *str, size_t n)
 	while (len < n)
 	{
 		vptr[len] = *(char *)str;
-		(char *)str++;
+		str++;
 		len++;
 	}
-//	vptr[len] = '\0';
 	return (ptr);
 }
 
@@ -38,24 +49,14 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	i = 0;
 	vptr = mmcopy(src, n);
-//	ft_putstr("test output: ");
-//	while (i < n)
-//	{
-//		ft_putchar(vptr[i]);
-//		ft_putchar(',');
-//		i++;
-//	}
-//	ft_putchar('\n');
-//	pdest = (char *)malloc(sizeof(char) * (n));
 	pdest = (char *)dest;
 	rptr = pdest;
 	while (i < n)
 	{
 		*(char *)dest = *(char *)vptr;
-		(char *)vptr++;
-		(char *)dest++;
+		vptr++;
+		dest++;
 		i++;
 	}
-//	*(char *)dest = '\0';
 	return (rptr);
 }

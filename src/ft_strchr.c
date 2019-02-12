@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 12:12:08 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/11 12:12:09 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/11 20:42:18 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/12 07:35:57 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include <stdlib.h>
 
-void	ft_putstr(char *str)
+char	*ft_strchr(const char *s, int c)
 {
-	int i;
+	char	*ptr;
 
-	i = 0;
-	while (*str != '\0')
+	ptr = NULL;
+	while (*s != c)
+		s++;
+	if (*s == c)
 	{
-		ft_putchar(*str);
-		str++;
-		i++;
+		*ptr = *s;
 	}
+	return (ptr);
 }
+//	The strchr() function locates the first occurrence of c (converted to a char) in the string pointed to by
+//	s.  The terminating null character is considered to be part of the string; therefore if c is `\0', the
+//	functions locate the terminating `\0'.
