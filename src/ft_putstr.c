@@ -6,11 +6,11 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:12:08 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/11 12:12:09 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/14 17:21:23 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "include/libft.h"
 
 void	ft_putstr(char *str)
 {

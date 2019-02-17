@@ -6,25 +6,33 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:12:22 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/11 12:12:24 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/15 20:22:21 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "include/libft.h"
 
 char	*ft_strcat(char *dest, char *src)
 {
 	char	*ptr;
+	int		i;
+	int		f;
+	int		dlen;
+	int		s;
 
-	ptr = &dest[0];
-	while (*dest)
-	{
+	i = (int)sizeof(dest);
+	dlen = ft_strlen(dest);
+	s = (int)sizeof(src);
+	f = 0;
+	ptr = dest;
+	if (!(*src))
+		return (ptr);
+	while (*dest != '\0')
 		dest++;
-	}
-	dest--;
-	while (*src)
+	while (*src != '\0')
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		*dest++ = *src++;
 	}
+	*dest = '\0';
 	return (ptr);
 }

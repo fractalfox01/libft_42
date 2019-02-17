@@ -6,18 +6,15 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:10:22 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/11 12:10:24 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/13 19:55:57 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	unsigned char	i;
-
-	i = c;
-	if (i > 0x7f)
+	if (c >= 0 && c < 128)
 	{
-		return (0);
+		return (1);
 	}
-	return (1);
+	return (0);
 }

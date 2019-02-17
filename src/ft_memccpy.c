@@ -6,36 +6,31 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:10:55 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/11 12:10:57 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/14 16:15:57 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdlib.h>
+#include "include/libft.h"
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	size_t i;
-	char *vptr;
+	char		*d;
+	const char	*s;
+	void		*p;
+	void		*r;
 
-	i = 0;
-	vptr = (char *)malloc(sizeof(char) * (n + 1));
-	while (i < n)
-	{
-		*(char*)dest = *(char*)src;
-		if (*(char*)dest == c)
-		{
-			dest++;
-			i++;
-			break;
-		}
-		dest++;
-		src++;
-		i++;
-	}
-	vptr = (char *)dest;
-	if (i == n && *(char*)src != c)
+	d = (char *)dest;
+	s = (char *)src;
+	p = ft_memchr(src, (char)c, n);
+	if (!n)
 		return (NULL);
-	*(char *)dest = '\0';	
-	return (vptr);
+	if (p != NULL)
+	{
+		ft_memcpy(d, s, p - src + 1);
+		r = ft_memchr(d, (char)c, n);
+		return ((void *)r + 1);
+	}
+	ft_memcpy(d, s, n);
+	return (NULL);
 }

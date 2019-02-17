@@ -6,13 +6,13 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:10:32 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/11 12:10:34 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/13 23:58:35 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(unsigned char str)
+int	ft_isdigit(int c)
 {
-	if (str > 47 && str < 58)
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }

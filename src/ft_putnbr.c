@@ -6,11 +6,11 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:11:58 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/11 12:12:00 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/14 17:21:09 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putchar(char c);
+#include "include/libft.h"
 
 void	ft_putnbr(int nb)
 {

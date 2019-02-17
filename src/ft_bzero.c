@@ -6,21 +6,22 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 11:58:50 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/11 12:09:22 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/14 18:22:06 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t		i;
+	size_t			i;
 	unsigned char	*ptr;
 
 	i = 0;
 	ptr = (unsigned char*)s;
 	while (i < n)
 	{
-		ptr[i++] = '\0';
+		ptr[i] = 0;
+		i++;
 	}
 }

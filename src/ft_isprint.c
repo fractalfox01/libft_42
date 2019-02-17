@@ -6,13 +6,13 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:10:42 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/11 12:10:46 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/13 19:12:25 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(unsigned char str)
+int	ft_isprint(int c)
 {
-	if (str > 31 && str < 128)
+	if (c > 31 && c < 127)
 		return (1);
 	return (0);
 }

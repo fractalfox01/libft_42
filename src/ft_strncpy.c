@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 12:13:06 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/14 18:26:59 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/14 23:06:06 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/15 17:40:13 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <string.h>
 #include "include/libft.h"
 
-char	*ft_strdup(const char *s)
+char *ft_strncpy(char *dst, const char *src, size_t n)
 {
-	char	*nstr;
-	int		len;
-	int		i;
+	int	i;
 
-	len = ft_strlen((char *)s);
-	nstr = (char *)malloc(sizeof(char) * (len + 1));
-	if (nstr == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len)
+	i = ft_strlen((char *)src);
+	if (i > (int)n)
 	{
-		nstr[i] = s[i];
-		i++;
+		return (ft_memcpy(dst, src, n));
 	}
-	nstr[i] = '\0';
-	return (nstr);
+	else if (i != (int)n)
+	{
+		ft_memset(dst + i, '\0', n - i);
+		return (ft_memcpy(dst, src, i));
+	}
+	return (ft_memcpy(dst, src, n));
 }
