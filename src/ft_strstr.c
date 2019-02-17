@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 16:26:26 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/15 17:12:19 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/17 01:24:13 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,40 @@
 #include <stdio.h>
 #include "include/libft.h"
 
-int	ft_cmp(char *s1, char *s2)
-{
-	int	i;
-	int	len;
-
-	i = 0;
-	len = ft_strlen(s1);
-	while (!(*s1++ = *s2++))
-		i++;
-	if (len == i)
-		return (1);
-	return (0);
-}
-
 char *ft_strstr(const char *haystack, const char *needle)
 {
-	char	*hs;
+	char	*h;
 	char	*n;
-	size_t	strlen;
-	size_t	hlen;
-	size_t	i;
+	size_t	nlen;
+	size_t	counter;
+	char	*ptr;
 
-	hs = (char *)haystack;
+	h = (char *)haystack;
 	n = (char *)needle;
-	strlen = ft_strlen(n);
-	hlen = ft_strlen(hs);
-	i = 0;
+	nlen = ft_strlen(n);
+	counter = 0;
+	ptr = h;
 	if (!(*n))
-		return (hs);
-	while (hlen-- > strlen)
+		return (h);
+	while (*h != '\0')
 	{
-		if (!(ft_cmp(hs + i, n)))
+		if (counter < nlen && *n == *h)
 		{
-			return (hs - i);
+			while (*n == *h && *h != '\0')
+			{
+				counter++;
+				if (counter == 1)
+					ptr = h;
+				if (counter == nlen)
+					return (ptr);
+				n++;
+				h++;
+			}
+			h = ptr + 1;
+			n = (char *)needle;
 		}
-		i++;
-		hs++;
+		counter = 0;
+		h++;
 	}
 	return (NULL);
 }
