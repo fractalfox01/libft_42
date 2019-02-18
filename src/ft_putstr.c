@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:12:08 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/14 17:21:23 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/17 21:59:47 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@ void	ft_putstr(char *str)
 	int i;
 
 	i = 0;
-	while (*str != '\0')
+	if (str)
 	{
-		ft_putchar(*str);
-		str++;
-		i++;
+		while (*str != '\0')
+		{
+			ft_putchar(*str);
+			str++;
+			i++;
+		}
 	}
 }

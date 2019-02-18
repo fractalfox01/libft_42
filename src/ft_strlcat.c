@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 21:55:44 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 16:25:03 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/17 23:06:18 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	char	*s;
 	char	*d;
 	size_t	slen;
-   	size_t	dlen;
+	size_t	dlen;
 
 	s = (char *)src;
 	d = (char *)dest;

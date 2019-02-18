@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:14:02 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/16 16:51:30 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/17 23:09:32 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t c)
 			return (0);
 		return (1);
 	}
-	while (*str1 != '\0'  && *str2 != '\0' && c > 0)
+	while (*str1 != '\0' && *str2 != '\0' && c > 0)
 	{
 		c--;
 		diff = *str1 - *str2;

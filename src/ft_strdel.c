@@ -6,13 +6,13 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 20:18:33 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 20:24:54 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/17 23:04:27 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void ft_strdel(char **as)
+void	ft_strdel(char **as)
 {
 	if (as)
 	{

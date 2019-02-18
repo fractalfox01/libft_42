@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 00:27:08 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 01:20:14 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/17 23:12:15 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			h = ptr + 1;
 			n = (char *)needle;
 		}
-//		if (counter == nlen)
-//			return (ptr);
 		counter = 0;
 		h++;
 		len--;

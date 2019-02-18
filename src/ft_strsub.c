@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 12:12:50 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 23:04:00 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/17 22:51:31 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/18 00:46:33 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "include/libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
-	int				diff;
+	char	*sptr;
+	char	*tmp;
+	int		i;
 
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	diff = *str1 - *str2;
-	if (*str2 == 0)
+	if (s)
 	{
-		if (*str1 == 0)
-			return (0);
-		return (1);
+		i = 0;
+		sptr = (char *)s;
+		tmp = ft_memalloc(len);
+		while (i < (int)len)
+		{
+			tmp[i++] = sptr[start++];
+		}
+		return (tmp);
 	}
-	while (*str1 != '\0' && *str2 != '\0')
-	{
-		diff = *str1 - *str2;
-		str1++;
-		str2++;
-	}
-	return (diff);
+	return (NULL);
 }

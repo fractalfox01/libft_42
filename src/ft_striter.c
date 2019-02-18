@@ -6,11 +6,11 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 20:34:28 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 20:43:32 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/17 23:05:15 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_striter(char *s, void (*f)(char *))
+void	ft_striter(char *s, void (*f)(char *))
 {
 	if (s)
 	{

@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 18:57:29 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 20:15:55 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/17 23:10:44 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <string.h>
 #include "include/libft.h"
 
-char *ft_strnew(size_t size)
+char	*ft_strnew(size_t size)
 {
 	char	*ptr;
 
