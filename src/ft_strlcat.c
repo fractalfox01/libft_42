@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 21:55:44 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 03:27:53 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/17 16:25:03 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,22 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	char	*ptr;
-	int		i;
-	int		f;
-	int		dlen;
-	int		s;
-	size_t	total;
-	int		si;
+	char	*s;
+	char	*d;
+	size_t	slen;
+   	size_t	dlen;
 
-	i = (int)sizeof(dest);
-	dlen = ft_strlen(dest);
-	s = (int)sizeof(src);
-	f = 0;
-	ptr = dest;
-	si = (size + (ft_strlen(dest) - ft_strlen((char *)src)));
-	total = si;
-	if (!(*src) || size == 0)
-		return ((size_t)total);
-	while (*dest != '\0' && si-- > 0)
+	s = (char *)src;
+	d = (char *)dest;
+	slen = ft_strlen(s);
+	dlen = ft_strnlen(d, size);
+	if (size > (dlen + slen))
 	{
-		dest++;
+		ft_strncat(d, s, size);
+		return (dlen + slen);
 	}
-	while (*src != '\0' && si > 0)
-	{
-		*dest++ = *src++;
-		si--;
-	}
-	*dest = '\0';
-	return ((size_t)total);
+	if (dlen == size)
+		return (size + slen);
+	ft_strncat(d, s, slen - 1);
+	return (dlen + slen);
 }

@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 12:11:51 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 21:53:26 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/17 20:34:28 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/17 20:43:32 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "include/libft.h"
-
-void	ft_putchar(int c)
+void ft_striter(char *s, void (*f)(char *))
 {
-	if (c < 128)
-		write(1, &c, 1);
-	if (c > 127 && c <= 194)
-		write(1, &c, 2);
-	if (c > 194)
-		write(1, &c, 3);
+	if (s)
+	{
+		while (*s != '\0')
+		{
+			f(s++);
+		}
+	}
 }

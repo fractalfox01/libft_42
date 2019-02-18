@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 12:11:51 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 21:53:26 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/17 21:55:43 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/17 21:56:07 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "include/libft.h"
-
-void	ft_putchar(int c)
+char * ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (c < 128)
-		write(1, &c, 1);
-	if (c > 127 && c <= 194)
-		write(1, &c, 2);
-	if (c > 194)
-		write(1, &c, 3);
+
 }

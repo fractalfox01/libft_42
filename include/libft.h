@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 20:09:59 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/16 16:54:26 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/17 21:43:41 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 # include <string.h>
 
-void	ft_putchar(char c);
+void	ft_putchar(int c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int nb);
 void	ft_bzero(void *s, size_t n);
 int		ft_strlen(char *str);
+int		ft_strnlen(char *str, size_t n);
+char	*ft_strnew(size_t size);
 char	*ft_strcpy(char *dest, char *src);
 char	*ft_strncat(char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s);
@@ -42,6 +44,13 @@ void	*ft_memchr(const void *str, int c, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memalloc(size_t size);
+void	ft_memdel(void **ap);
+void	ft_strdel(char **as);
+void	ft_strclr(char *s);
+void	ft_striter(char *s, void (*f)(char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_strmap(char const *s, char (*f)(char));
 int		ft_tolower(int nb);
 int		ft_toupper(int nb);
 char	*ft_strcat(char *dest, char *src);

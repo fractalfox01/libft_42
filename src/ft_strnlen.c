@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 12:11:51 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 21:53:26 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/17 15:00:29 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/17 15:58:58 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "include/libft.h"
+#include <string.h>
 
-void	ft_putchar(int c)
+int	ft_strnlen(const char *str, size_t n)
 {
-	if (c < 128)
-		write(1, &c, 1);
-	if (c > 127 && c <= 194)
-		write(1, &c, 2);
-	if (c > 194)
-		write(1, &c, 3);
+	int	len;
+
+	len = 0;
+	while (str[len] != '\0' && len < (int)n)
+	{
+		len++;
+	}
+	return (len);
 }

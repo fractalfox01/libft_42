@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 12:11:51 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 21:53:26 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/17 18:57:29 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/17 20:15:55 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 #include "include/libft.h"
 
-void	ft_putchar(int c)
+char *ft_strnew(size_t size)
 {
-	if (c < 128)
-		write(1, &c, 1);
-	if (c > 127 && c <= 194)
-		write(1, &c, 2);
-	if (c > 194)
-		write(1, &c, 3);
+	char	*ptr;
+
+	ptr = (char *)ft_memalloc(size + 1);
+	if (ptr)
+	{
+		return (ptr);
+	}
+	return (NULL);
 }
