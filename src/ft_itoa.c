@@ -1,38 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/17 22:51:31 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/18 01:20:18 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/20 15:38:18 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/20 16:00:39 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "include/libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_itoa(int n)
 {
-	char	*sptr;
-	char	*tmp;
+	long	nbr;
+	char	*ptr;
+	int		len;
+	int		minus;
 	int		i;
 
-	if (s)
+	minus = 0;
+	len = 0;
+	i = 0;
+	nbr = n;
+	if (nbr < 0)
 	{
-		i = 0;
-		sptr = (char *)s;
-		tmp = ft_memalloc(len + 1);
-		if (tmp)
-		{
-			while (i < (int)len)
-			{
-				tmp[i++] = sptr[start++];
-			}
-			tmp[i] = '\0';
-			return (tmp);
-		}
+		minus = 1;
+		nbr *= -1;
 	}
-	return (NULL);
+	while ((nbr % 10) > 0)
+	{
+		nbr /= 10;
+		len++;
+	}
+	if (minus)
+	{
+		ptr = ft_strnew(len + 2);
+		ptr[i++] = '-';
+	}
+	else
+		ptr = ft_strnew(len + 1);
+	nbr = n;
+	if (nbr < 0)
+	{
+		minus = 1;
+		nbr *= -1;
+	}
+	while (i < len)
+	{
+		nbr /= 10;
+		ptr[i++] = ((nbr % 10) + 48);
+	}
+	return (ptr);
 }

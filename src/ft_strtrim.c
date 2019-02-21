@@ -1,37 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/17 22:51:31 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/18 01:20:18 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/18 11:22:49 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/18 13:20:55 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "include/libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strtrim(char const *s)
 {
-	char	*sptr;
-	char	*tmp;
+	char	*ret;
+	int		start;
+	int		end;
 	int		i;
+	size_t	size;
 
 	if (s)
 	{
 		i = 0;
-		sptr = (char *)s;
-		tmp = ft_memalloc(len + 1);
-		if (tmp)
+		while (ft_whitespace(s[i]) && s[i] != '\0')
+			i++;
+		start = i;
+//		if (s[i] == '\0')
+//			return (NULL);
+		while (s[i] != '\0')
+			i++;
+		i -= 1;
+		while (ft_whitespace(s[i]) && i > start)
+			i--;
+//		if (i == start)
+//			return (NULL);
+		i++;
+		end = i;
+		size = end - start;
+		ret = ft_strsub(s, start, size);
+		if (ret)
 		{
-			while (i < (int)len)
-			{
-				tmp[i++] = sptr[start++];
-			}
-			tmp[i] = '\0';
-			return (tmp);
+			return (ret);
 		}
 	}
 	return (NULL);

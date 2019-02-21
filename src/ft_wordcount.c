@@ -1,38 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_wordcount.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/17 22:51:31 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/18 01:20:18 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/18 13:33:43 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/19 17:26:46 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include "include/libft.h"
-
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+int	ft_wordcount(char *str, char c)
 {
-	char	*sptr;
-	char	*tmp;
+	int		nbr;
+	int		flag;
 	int		i;
 
-	if (s)
+	i = 0;
+	flag = 1;
+	nbr = 0;
+	if (str && c)
 	{
-		i = 0;
-		sptr = (char *)s;
-		tmp = ft_memalloc(len + 1);
-		if (tmp)
+		while (str[i] != '\0')
 		{
-			while (i < (int)len)
+			while (str[i] == c && str[i] != '\0')
 			{
-				tmp[i++] = sptr[start++];
+				i++;
 			}
-			tmp[i] = '\0';
-			return (tmp);
+			while (str[i] != c && str[i] != '\0')
+			{
+				if (flag == 1)
+				{
+					flag = 0;
+					nbr++;
+				}
+				i++;
+			}
+			flag = 1;
 		}
 	}
-	return (NULL);
+	if (nbr)
+	{
+		return (nbr);
+	}
+	return (-1);
 }
