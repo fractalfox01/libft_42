@@ -15,8 +15,11 @@ int	main(void)
 	char	*s = "olol                     ";
 	char	str7[] = "split";
 	char	str[] = "  \t \t \n   \n\n\n\t ";
-	int		nbr1 = 42;
-	int		nbr2 = -255;
+	int		nbr1 = 4224256;
+	int		nbr2 = -25;
+	int		nbr3 = -623;
+	int		nbr4 = 156;
+	int		nbr5 = 0;
 	int		wc;
 	char 	**ptr;
 	char	**ptr1;
@@ -27,6 +30,9 @@ int	main(void)
 
 	printf("%s\n", ft_itoa(nbr1));
 	printf("%s\n", ft_itoa(nbr2));
+	printf("%s\n", ft_itoa(nbr3));
+	printf("%s\n", ft_itoa(nbr4));
+	printf("%s\n", ft_itoa(nbr5));
 /*	printf("word count: %d\n", ft_wordcount(s, ' '));
 	printf("word count: %d\n", ft_wordcount(str2, '\n'));
 	printf("word count: %d\n", ft_wordcount(str1, '|'));

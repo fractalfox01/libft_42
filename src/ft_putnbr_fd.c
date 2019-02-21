@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 12:11:51 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/20 17:56:54 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/20 18:09:34 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/20 18:10:52 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "include/libft.h"
 
-void	ft_putchar(int c)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	if (c < 128)
-		write(1, &c, 1);
-	if (c > 127 && c <= 255)
-		write(1, &c, 2);
-	if (c > 255)
-		write(1, &c, 3);
+	if (nb < 0)
+	{
+		if (nb == -2147483648)
+		{
+			ft_putstr_fd("-2147483648", fd);
+			return ;
+		}
+		ft_putchar_fd('-', fd);
+		nb *= -1;
+	}
+	if ((nb / 10) > 0)
+	{
+		ft_putnbr_fd((nb / 10), fd);
+	}
+	ft_putchar_fd((nb % 10) + 48, fd);
 }

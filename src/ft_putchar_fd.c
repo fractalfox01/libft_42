@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 12:11:51 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/20 17:56:54 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/20 17:47:10 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/20 17:53:17 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "include/libft.h"
 
-void	ft_putchar(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c < 128)
-		write(1, &c, 1);
-	if (c > 127 && c <= 255)
-		write(1, &c, 2);
-	if (c > 255)
-		write(1, &c, 3);
+	if (c <= 127)
+	{
+		write(fd, &c, 1);
+	}
 }

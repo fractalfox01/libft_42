@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 20:09:59 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/20 15:36:19 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/20 18:11:27 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <string.h>
 
+void	ft_putnbr_fd(int nbr, int fd);
+void	ft_putendl_fd(char const *str, int fd);
+void	ft_putstr_fd(char const *str, int fd);
 void	ft_putchar(int c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int nb);
@@ -53,6 +56,8 @@ int		ft_tolower(int nb);
 int		ft_toupper(int nb);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_wordcount(char *str, char c);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl(char const *str);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *str, int c, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
