@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_worditoa.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/17 22:35:03 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/21 14:51:49 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/21 23:39:48 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/21 23:39:54 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/libft.h"
 
-int	ft_strequ(char const *s1, char const *s2)
+char	*ft_worditoa(char *ptr, long nbr, long len, long b)
 {
-	int	len1;
-	int	len2;
+	char	*cat;
+	long	rem;
 
-	if (s1 && s2)
+	rem = 1;
+	cat = "-2147483648";
+	if (nbr == -2147483648)
 	{
-		len1 = ft_strlen((char *)s1);
-		len2 = ft_strlen((char *)s2);
-		if (len1 == len2)
-		{
-			if (ft_strcmp(s1, s2) == 0)
-				return (1);
-		}
-		else
-			return (0);
+		b = -1;
+		ptr = ft_strnew(12);
+		while (++b < 11)
+			ptr[b] = cat[b];
+		return (ptr);
 	}
-	return (0);
+	while (len > 0)
+	{
+		ptr[b++] = (nbr / ft_power(len)) + 48;
+		rem = (nbr % ft_power(len));
+		nbr -= ft_power(len) * (nbr / ft_power(len));
+		len--;
+	}
+	return (ptr);
 }

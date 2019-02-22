@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 11:22:49 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/18 13:20:55 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/21 22:01:29 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,17 @@ char	*ft_strtrim(char const *s)
 		while (ft_whitespace(s[i]) && s[i] != '\0')
 			i++;
 		start = i;
-//		if (s[i] == '\0')
-//			return (NULL);
 		while (s[i] != '\0')
 			i++;
 		i -= 1;
 		while (ft_whitespace(s[i]) && i > start)
 			i--;
-//		if (i == start)
-//			return (NULL);
 		i++;
 		end = i;
 		size = end - start;
 		ret = ft_strsub(s, start, size);
 		if (ret)
-		{
 			return (ret);
-		}
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:10:12 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/11 12:10:14 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/20 23:52:44 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@ int	ft_isalpha(int c)
 	int	ret;
 
 	ret = 0;
-	if (c > 64 && c < 91)
-		ret = c;
-	if (c > 96 && c < 123)
-		ret = c;
+	if (c >= 'A' && c <= 'Z')
+		ret = 1;
+	if (c >= 'a' && c <= 'z')
+		ret = 1;
 	return (ret);
 }

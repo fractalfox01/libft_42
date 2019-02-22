@@ -6,17 +6,22 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 20:34:28 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 23:05:15 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/21 12:06:08 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 void	ft_striter(char *s, void (*f)(char *))
 {
-	if (s)
+	int	i;
+
+	i = 0;
+	if (s && *f != NULL)
 	{
-		while (*s != '\0')
+		while (s[i] != '\0')
 		{
-			f(s++);
+			f(&s[i++]);
 		}
 	}
 }

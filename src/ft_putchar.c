@@ -6,14 +6,14 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:11:51 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/20 17:56:54 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/20 23:30:53 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "include/libft.h"
 
-void	ft_putchar(int c)
+void	ft_putchar(long c)
 {
 	if (c < 128)
 		write(1, &c, 1);

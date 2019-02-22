@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 20:09:59 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/20 18:11:27 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/21 23:41:22 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,18 @@
 void	ft_putnbr_fd(int nbr, int fd);
 void	ft_putendl_fd(char const *str, int fd);
 void	ft_putstr_fd(char const *str, int fd);
-void	ft_putchar(int c);
+void	ft_putchar(long c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int nb);
 void	ft_bzero(void *s, size_t n);
+long    ft_power(long n);
 int		ft_strlen(char *str);
 int		ft_strnlen(char *str, size_t n);
 int		ft_strequ(char const *s1, char const *s2);
-int 	ft_strnequ(char const *s1, char const *s2, size_t n);
+int		ft_strnequ(char const *s1, char const *s2, size_t n);
 int		ft_whitespace(int c);
 int		ft_strxlen(const char *str, char c);
+char	*ft_worditoa(char *ptr, long nbr, long len, long b);
 char	*ft_strnew(size_t size);
 char	*ft_strcpy(char *dest, char *src);
 char	*ft_strncat(char *s1, const char *s2, size_t n);
@@ -49,8 +51,8 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_isalpha(int nbr);
 int		ft_isascii(int nbr);
-int		ft_isdigit(unsigned char str);
-int		ft_isprint(unsigned char str);
+int		ft_isdigit(int c);
+int		ft_isprint(int c);
 int		ft_isalnum(int c);
 int		ft_tolower(int nb);
 int		ft_toupper(int nb);

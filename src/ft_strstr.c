@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 16:26:26 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/18 00:52:39 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/21 23:53:44 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,24 @@
 #include <stdio.h>
 #include "include/libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+static char	*help(char *n, char *h, char *ptr, char *needle)
 {
-	char	*h;
-	char	*n;
-	size_t	nlen;
 	size_t	counter;
-	char	*ptr;
+	size_t	nlen;
 
-	h = (char *)haystack;
-	n = (char *)needle;
-	nlen = ft_strlen(n);
 	counter = 0;
-	ptr = h;
-	if (!(*n))
-		return (h);
+	nlen = ft_strlen(n);
 	while (*h != '\0')
 	{
 		if (counter < nlen && *n == *h)
 		{
-			while (*n == *h && *h != '\0')
+			while (*n++ == *h && *h != '\0')
 			{
 				counter++;
 				if (counter == 1)
 					ptr = h;
 				if (counter == nlen)
 					return (ptr);
-				n++;
 				h++;
 			}
 			h = ptr + 1;
@@ -50,4 +41,20 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		h++;
 	}
 	return (NULL);
+}
+
+char		*ft_strstr(const char *haystack, const char *needle)
+{
+	char	*h;
+	char	*n;
+	size_t	nlen;
+	char	*ptr;
+
+	h = (char *)haystack;
+	n = (char *)needle;
+	nlen = ft_strlen(n);
+	ptr = h;
+	if (!(*n))
+		return (h);
+	return (help(n, h, ptr, (char *)needle));
 }

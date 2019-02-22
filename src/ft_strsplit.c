@@ -6,32 +6,23 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 13:25:45 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/20 15:35:16 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/21 21:54:27 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include "include/libft.h"
-#include <stdio.h>
 
-
-
-char	**ft_strsplit(char const *s, char c)
+char	**help(char **tab, char const *s, char c, int max)
 {
-	int		i;
-	int		b;
-	int		max;
-	int len = 0;
-	char	**tab;
+	int	b;
+	int	i;
+	int	len;
 
-	i = 0;
 	b = 0;
-	max = ft_wordcount((char *)s, c);
-	tab = (char **)malloc(sizeof(s) * (max + 1));
-	if (!tab)
-		return (NULL);
+	i = 0;
+	len = 0;
 	while (b < max && s[i] != '\0')
 	{
 		while (s[i] == c && s[i] != '\0')
@@ -44,15 +35,26 @@ char	**ft_strsplit(char const *s, char c)
 			i += ft_strxlen(&s[i], c);
 			b++;
 		}
-		else if (s[i] == '\0')
-		{
-			tab[b] = NULL;
+		else if (s[i] == '\0' && !(tab[b] = NULL))
 			return (tab);
-		}
 	}
-	if (!tab)
-		return (NULL);
-	tab[b] = NULL;
+	tab[max] = NULL;
 	return (tab);
 }
-// code out a word counter.
+
+char	**ft_strsplit(char const *s, char c)
+{
+	int		max;
+	char	**tab;
+
+	if (s && c)
+	{
+		max = ft_wordcount((char *)s, c);
+		tab = (char **)malloc(sizeof(s) * (max + 1));
+		if (!tab)
+			return (NULL);
+		tab = help(tab, s, c, max);
+		return (tab);
+	}
+	return (NULL);
+}
