@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 17:34:02 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/22 17:34:38 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/22 21:24:10 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char	**ft_strbuild(char **tab, char const *s, char c, int max)
 		{
 			len = ft_strxlen(&s[i], c);
 			tab[b] = ft_strnew(len + 1);
+			if (!(tab[b]))
+				return NULL;
 			ft_strncpy(tab[b], &s[i], len);
 			i += ft_strxlen(&s[i], c);
 			b++;

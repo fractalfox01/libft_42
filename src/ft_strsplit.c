@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 13:25:45 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/22 17:36:33 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/22 21:24:07 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ char	**ft_strsplit(char const *s, char c)
 		tab = ft_strbuild(tab, s, c, max);
 		return (tab);
 	}
-	return (NULL);
+	else
+	{
+		tab = (char **)malloc(sizeof(s) * 1);
+		tab[0] = NULL;
+	}
+	return (tab);
 }
