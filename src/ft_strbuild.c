@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strbuild.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/20 18:09:34 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/22 15:41:35 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/22 17:34:02 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/22 17:34:38 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+char	**ft_strbuild(char **tab, char const *s, char c, int max)
 {
-	if (nb < 0)
+	int	b;
+	int	i;
+	int	len;
+
+	b = 0;
+	i = 0;
+	len = 0;
+	while (b < max && s[i] != '\0')
 	{
-		if (nb == -2147483648)
+		while (s[i] == c && s[i] != '\0')
+			i++;
+		if (s[i] != '\0')
 		{
-			ft_putstr_fd("-2147483648", fd);
-			return ;
+			len = ft_strxlen(&s[i], c);
+			tab[b] = ft_strnew(len + 1);
+			ft_strncpy(tab[b], &s[i], len);
+			i += ft_strxlen(&s[i], c);
+			b++;
 		}
-		ft_putchar_fd('-', fd);
-		nb *= -1;
+		else if (s[i] == '\0' && !(tab[b] = NULL))
+			return (tab);
 	}
-	if ((nb / 10) > 0)
-	{
-		ft_putnbr_fd((nb / 10), fd);
-	}
-	ft_putchar_fd((nb % 10) + 48, fd);
+	tab[max] = NULL;
+	return (tab);
 }

@@ -6,11 +6,11 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 23:39:48 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/21 23:39:54 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:49:04 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libft.h"
+#include "libft.h"
 
 char	*ft_worditoa(char *ptr, long nbr, long len, long b)
 {

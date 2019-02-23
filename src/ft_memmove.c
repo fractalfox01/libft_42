@@ -6,12 +6,12 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:11:28 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/15 13:59:18 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:39:37 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include "include/libft.h"
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

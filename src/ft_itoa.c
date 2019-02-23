@@ -6,11 +6,11 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 15:38:18 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/21 23:50:25 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:37:05 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libft.h"
+#include "libft.h"
 
 char	*ft_itoa(int n)
 {

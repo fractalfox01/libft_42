@@ -6,13 +6,13 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:42:54 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 20:10:19 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:39:22 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
-#include "include/libft.h"
+#include "libft.h"
 
 void	ft_memdel(void **ap)
 {

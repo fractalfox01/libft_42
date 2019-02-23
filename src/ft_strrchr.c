@@ -6,12 +6,12 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 14:11:37 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/16 16:33:18 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:46:51 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include "include/libft.h"
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

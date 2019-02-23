@@ -6,12 +6,12 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 22:35:03 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/17 23:10:24 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:45:58 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include "include/libft.h"
+#include "libft.h"
 
 int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {

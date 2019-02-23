@@ -6,11 +6,11 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:12:22 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/15 20:22:21 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:42:14 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libft.h"
+#include "libft.h"
 
 char	*ft_strcat(char *dest, char *src)
 {

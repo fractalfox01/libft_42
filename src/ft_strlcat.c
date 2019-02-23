@@ -6,12 +6,12 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 21:55:44 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/21 18:00:57 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:59:33 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include "include/libft.h"
+#include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
@@ -30,11 +30,11 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	}
 	if (slen < (size - dlen))
 	{
-		memcpy(dest + dlen, src, slen + 1);
+		ft_memcpy(dest + dlen, src, slen + 1);
 	}
 	else
 	{
-		memcpy(dest + dlen, src, size - 1);
+		ft_memcpy(dest + dlen, src, size - 1);
 		dest[dlen + slen - 1] = '\0';
 	}
 	return (dlen + slen);
