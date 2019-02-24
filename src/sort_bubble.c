@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   sort_bubble.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 13:25:45 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/23 23:44:17 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/23 23:17:06 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/23 23:22:39 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdlib.h>
-#include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+int	*sort_bubble(int *arr, size_t len)
 {
-	int		max;
-	char	**tab;
+	size_t	i;
+	size_t	j;
+	int		x;
 
-	if (s && c)
+	i = 0;
+	j = 1;
+	x = 0;
+	while (i < len && (i + 1) != len)
 	{
-		max = ft_wordcount((char *)s, c);
-		tab = (char **)malloc(sizeof(s) * (max + 1));
-		if (!tab)
-			return (NULL);
-		tab = ft_strbuild(tab, s, c, max);
-		return (tab);
+		while (j < len)
+		{
+			if (arr[i] > arr[j])
+			{
+				x = arr[i];
+				arr[i] = arr[j];
+				arr[j] = x;
+			}
+			j++;
+		}
+		i++;
+		j = i + 1;
 	}
-	else
-	{
-		tab = (char **)malloc(sizeof(s) * 1);
-		return (tab);
-	}
-	return (tab);
+	return (arr);
 }

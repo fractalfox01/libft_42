@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:38:23 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/23 23:04:20 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/23 23:26:51 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstnew(void const *cont, size_t c_size)
 
 	lst = (t_list *)malloc(sizeof(t_list));
 	if (!(lst))
-		return NULL;
+		return (NULL);
 	if (cont == NULL || c_size == 0)
 	{
 		lst->content = NULL;
