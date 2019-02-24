@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 13:25:45 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/22 21:51:15 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/22 19:39:17 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/23 12:11:28 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	int		max;
-	char	**tab;
+	t_list	*ptr;
 
-	if (s && c)
+	if (*alst)
 	{
-		max = ft_wordcount((char *)s, c);
-		tab = (char **)malloc(sizeof(s) * (max + 1));
-		if (!tab)
-			return (NULL);
-		tab = ft_strbuild(tab, s, c, max);
-		return (tab);
+		ptr = *alst;
+		del(ptr->content, ptr->content_size);
+		free(ptr);
+		alst = NULL;
 	}
-	else
-	{
-		tab = (char **)malloc(sizeof(s) * 1);
-		return (tab);
-	}
-	return (tab);
 }
