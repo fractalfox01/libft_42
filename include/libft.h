@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 20:09:59 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/22 19:36:25 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/24 13:01:36 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					*sort_bubble(int *arr, size_t len);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);

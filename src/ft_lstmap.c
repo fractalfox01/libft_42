@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/22 19:39:17 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/24 12:54:54 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/02/22 19:42:21 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/02/24 17:49:51 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
 #include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+t_list * ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
 {
-	if (alst)
+	t_list	*ptr;
+	t_list	*newlst;
+	t_list	*cat;
+
+	if (!lst || !f)
+		return (NULL);
+	cat = f(lst);
+	if (!(ptr = ft_lstnew(cat->content, cat->content_size)))
+		return (NULL);
+	lst = lst->next;
+	newlst = ptr;
+	while (lst)
 	{
-		del((*alst)->content, (*alst)->content_size);
-		free(*alst);
-		*alst = NULL;
+		cat = f(lst);
+		if (!(ptr->next = ft_lstnew(cat->content, cat->content_size)))
+			return (NULL);
+		ptr = ptr->next;
+		lst = lst->next;
 	}
+	return (newlst);
 }
