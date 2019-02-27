@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 12:09:36 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/22 15:35:42 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/26 13:54:27 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	ft_atoi(char *str)
 	dir = 1;
 	if (*str == 0)
 		return (0);
-	while ((*str <= ' ' || *str > '~') && *str != 27)
+	while (*str == '\f' || *str == ' ' || *str == '\n' || *str == '\r' \
+			|| *str == '\v' || *str == '\t')
 	{
 		str++;
 	}

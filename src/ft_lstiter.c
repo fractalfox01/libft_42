@@ -6,13 +6,13 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:41:43 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/24 14:01:06 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/24 21:36:41 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
 	t_list	*nxt;
 	t_list	*tmp;
@@ -27,5 +27,5 @@ void ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 			f(tmp);
 			tmp = nxt;
 		}
-	}	
+	}
 }

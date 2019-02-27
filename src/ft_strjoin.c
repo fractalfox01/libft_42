@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 01:24:21 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/22 15:44:11 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/24 17:58:56 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		k;
 	char	*ptr;
-	int		i;
+	size_t	i;
 
 	if (s1 && s2)
 	{

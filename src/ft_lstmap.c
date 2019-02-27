@@ -6,13 +6,13 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:42:21 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/24 17:49:51 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/02/24 21:37:29 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list * ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*ptr;
 	t_list	*newlst;
