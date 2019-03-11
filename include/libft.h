@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 20:09:59 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/03/01 12:50:42 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/03/10 19:10:55 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					ft_abs(int nbr);
+char				*ft_strpbrk(const char *str1, const char *str2);
 int					ft_iscntrl(int c);
 int					ft_isgraph(int c);
 void				*ft_realloc(void *tab, size_t size);
@@ -42,7 +44,7 @@ void				ft_putchar(long c);
 void				ft_putstr(char *str);
 void				ft_putnbr(int nb);
 void				ft_bzero(void *s, size_t n);
-long				ft_power(long n);
+long				ft_power(long n, int base);
 size_t				ft_strlen(char *str);
 int					ft_strnlen(char *str, size_t n);
 int					ft_strequ(char const *s1, char const *s2);

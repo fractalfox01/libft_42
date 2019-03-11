@@ -6,11 +6,11 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 23:37:02 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/21 23:37:23 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/03/10 14:35:21 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_power(long n)
+long	ft_power(long n, int base)
 {
 	long	i;
 	long	nbr;
@@ -22,9 +22,9 @@ long	ft_power(long n)
 	if (n > 1)
 	{
 		while (i++ < n)
-		{
-			nbr *= 10;
-		}
+			nbr *= base;
 	}
+	else
+		return (-1);
 	return (nbr);
 }

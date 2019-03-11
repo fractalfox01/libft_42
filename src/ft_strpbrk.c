@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/28 13:49:13 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/03/01 18:32:14 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/03/10 18:08:05 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/03/10 18:59:33 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	*ft_realloc(void *tab, size_t size)
+char *ft_strpbrk(const char *str1, const char *str2)
 {
-	size_t	i;
-	void	*ptr;
+	int	i;
+	int j;
+	int len;
+	char *ret;
 
 	i = 0;
-	ptr = ft_memalloc(size);
-	if (!tab || ptr)
-		return (NULL);
-	ptr = ft_memcpy(ptr, tab, sizeof(tab));
-	free(tab);
-	return (ptr);
+	j = 0;
+	len = ft_strlen((char *)str1);
+	while (i < len)
+	{
+		ret = (char *)str1;
+		while (str2[j] != '\0')
+		{
+			if (*ret == str2[j])
+				return (ret);
+			j++;
+		}
+		j = 0;
+		str1++;
+		i++;
+	}
+	return (NULL);
 }

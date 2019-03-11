@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 23:39:48 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/22 15:49:04 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/03/10 14:37:34 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ char	*ft_worditoa(char *ptr, long nbr, long len, long b)
 	}
 	while (len > 0)
 	{
-		ptr[b++] = (nbr / ft_power(len)) + 48;
-		rem = (nbr % ft_power(len));
-		nbr -= ft_power(len) * (nbr / ft_power(len));
+		ptr[b++] = (nbr / ft_power(len, 10)) + 48;
+		rem = (nbr % ft_power(len, 10));
+		nbr -= ft_power(len, 10) * (nbr / ft_power(len, 10));
 		len--;
 	}
 	return (ptr);

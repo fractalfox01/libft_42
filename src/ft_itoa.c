@@ -6,7 +6,7 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 15:38:18 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/26 22:40:49 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/03/10 14:36:37 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_itoa(int n)
 		nbr = -nbr;
 	tmp = nbr;
 	while (tmp >= 10)
-		tmp = (nbr / ft_power(len++));
+		tmp = (nbr / ft_power(len++, 10));
 	len--;
 	ptr = ft_strnew(len + 1);
 	if (!ptr)
