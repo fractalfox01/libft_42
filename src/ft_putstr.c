@@ -10,20 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
 void	ft_putstr(char *str)
 {
-	int i;
+	int	len;
 
-	i = 0;
-	if (str)
-	{
-		while (*str != '\0')
-		{
-			ft_putchar(*str);
-			str++;
-			i++;
-		}
-	}
+	len = ft_strlen(str);
+	write(1, &*str, len);
 }
