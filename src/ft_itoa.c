@@ -6,13 +6,38 @@
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 15:38:18 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/03/10 14:36:37 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/03/27 11:11:47 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static char	*find_value(char *ptr, long nbr, long len, long b)
+{
+	char	*cat;
+	long	rem;
+
+	rem = 1;
+	cat = "-2147483648";
+	if (nbr == -2147483648)
+	{
+		b = -1;
+		ptr = ft_strnew(12);
+		while (++b < 11)
+			ptr[b] = cat[b];
+		return (ptr);
+	}
+	while (len > 0)
+	{
+		ptr[b++] = (nbr / ft_power(len, 10)) + 48;
+		rem = (nbr % ft_power(len, 10));
+		nbr -= ft_power(len, 10) * (nbr / ft_power(len, 10));
+		len--;
+	}
+	return (ptr);
+}
+
+char		*ft_itoa(int n)
 {
 	long	nbr;
 	char	*ptr;
@@ -28,7 +53,8 @@ char	*ft_itoa(int n)
 	tmp = nbr;
 	while (tmp >= 10)
 		tmp = (nbr / ft_power(len++, 10));
-	len--;
+	if (len != 1)
+		len--;
 	ptr = ft_strnew(len + 1);
 	if (!ptr)
 		return (NULL);
@@ -36,5 +62,5 @@ char	*ft_itoa(int n)
 		ptr[b++] = '-';
 	if (nbr == 0 && (ptr[b] = '0'))
 		return (ptr);
-	return (ft_worditoa(ptr, nbr, len, b));
+	return (find_value(ptr, nbr, len, b));
 }
