@@ -6,7 +6,7 @@
 /*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 11:54:40 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/06/14 16:30:50 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/07/15 22:55:38 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_list  *handler(t_list *head, int i, int j)
 
     if (head)
     {
-        len = ft_get_lst_len(head);
+        len = ft_lst_len(head);
         first = &*head;
         second = first->next;
         while (i++ < len && first)
