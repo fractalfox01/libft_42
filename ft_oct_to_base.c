@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_oct_to_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 12:11:51 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/22 15:40:26 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/08/03 21:04:30 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/08/03 21:10:30 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putchar(long c)
+int	ft_oct_to_int_helper(char *oct, int nbr, int len, int base)
 {
-	if (c < 128)
-		write(1, &c, 1);
-	if (c > 127 && c <= 255)
-		write(1, &c, 2);
-	if (c > 255)
-		write(1, &c, 3);
+	int	min;
+
+	min = 0;
+	if (len >= 3 && oct[0] == '0' && oct[1] == 'o')
+		min += 2;
+	while (--len >= min)
+	{
+		if (oct[len] >= '0' && oct[len] <= '7')
+			nbr += (oct[len] - 48) * base;
+		else
+			return (0);
+		base *= 8;
+	}
+	return (nbr);
+}
+
+int	ft_oct_to_int(char *str)
+{
+	int len;
+
+	len = ft_strlen(str);
+	return (ft_oct_to_int_helper(str, 0, len, 1));
 }

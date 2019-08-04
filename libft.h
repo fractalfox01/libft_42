@@ -6,7 +6,7 @@
 /*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 20:09:59 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/07/15 16:49:52 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/08/03 23:03:59 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ char						*ft_strchr(const char *s, int c);
 char						*ft_strrchr(const char *s, int c);
 char						*ft_strstr(const char *haystack, const char *needle);
 char						*ft_strnstr(const char *hay, const char *ndle, size_t len);
+char						*ft_strrev(char *str);
 char						*ft_strncpy(char *dst, const char *src, size_t len);
 char						*ft_strsub(char const *s, unsigned int start, size_t len);
 char						*ft_strjoin(char const *s1, char const *s2);
@@ -162,5 +163,6 @@ int							ft_queue_is_empty(t_queue *que);
 int							ft_queue_is_full(t_queue *que);
 int							ft_queue_front(t_queue *que);
 int							ft_queue_rear(t_queue *que);
+int							ft_dec_to_oct(int nbr);
 
 #endif

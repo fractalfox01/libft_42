@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_dec_to_oct.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/20 18:09:34 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/22 15:41:35 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/08/03 21:54:02 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/08/03 23:04:43 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+int	ft_dec_to_oct(int nbr)
 {
-	if (nb < 0)
+	int		oct;
+	char	*str;
+	char	*ret;
+	int		i;
+
+	i = 0;
+	oct = 0;
+	str = ft_strnew(30);
+	ft_bzero(str, 30);
+	while (nbr / 8 > 0)
 	{
-		if (nb == -2147483648)
-		{
-			ft_putstr_fd("-2147483648", fd);
-			return ;
-		}
-		ft_putchar_fd('-', fd);
-		nb *= -1;
+		if (nbr % 8 > 0)
+			str[i] = (nbr % 8) + 48;
+		else
+			str[i] = '0';
+		nbr /= 8;
+		i++;
 	}
-	if ((nb / 10) > 0)
-	{
-		ft_putnbr_fd((nb / 10), fd);
-	}
-	ft_putchar_fd((nb % 10) + 48, fd);
+	str[i] = (nbr + 48);
+	ret = ft_strrev(str);
+	oct = ft_atoi(ret);
+	free((void *)str);
+	return (oct);
 }

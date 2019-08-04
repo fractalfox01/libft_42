@@ -1,42 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 12:09:36 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/02/28 11:13:14 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/08/01 23:18:50 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/08/01 23:43:08 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi_base(const char *str, int str_base)
 {
-	int	nbr;
-	int	dir;
+	char	*base;
+	int		dir;
+	int		nbr;
 
 	nbr = 0;
 	dir = 1;
-	if (*str == 0)
-		return (0);
+	base = ft_strdup("0123456789abcdef");
+
 	while (*str == '\f' || *str == ' ' || *str == '\n' || *str == '\r' \
 			|| *str == '\v' || *str == '\t')
 	{
 		str++;
 	}
-	if (*str == '-' || *str == '+')
+	if (*str == '-')
 	{
-		if (*str == '-')
-			dir *= -1;
+		str++;
+		dir = -1;
+	}
+	while (ft_isdigit(*str) || (*str >= 'a' || *str <= 'f') || (*str >= 'A' \
+				|| *str <= 'F'))
+	{
+		if ((*str >= 'a' || *str <= 'f') || (*str >= 'A' || *str <= 'F'))
+		{
+			
+		}
+		nbr = nbr * base + (str - 48);
 		str++;
 	}
-	while (*str > 47 && *str < 58)
-	{
-		nbr = nbr * 10 + (*str - 48);
-		str++;
-	}
+	free((void *)base);
 	return (nbr * dir);
 }
