@@ -12,5 +12,28 @@
 
 long	ft_atol(char *str)
 {
-	
+  	long	nbr;
+	long	dir;
+
+	nbr = 0;
+	dir = 1;
+	if (*str == 0)
+		return (0);
+	while (*str == '\f' || *str == ' ' || *str == '\n' || *str == '\r' \
+			|| *str == '\v' || *str == '\t')
+	{
+		str++;
+	}
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			dir *= -1;
+		str++;
+	}
+	while (*str > 47 && *str < 58)
+	{
+		nbr = nbr * 10 + (*str - 48);
+		str++;
+	}
+	return (nbr * dir);
 }
