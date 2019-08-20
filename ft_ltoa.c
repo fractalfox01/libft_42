@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_ltoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/20 15:38:18 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/08/18 13:38:45 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/08/19 12:47:49 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/08/19 12:53:09 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,9 @@
 
 static char	*find_value(char *ptr, long nbr, long len, long b)
 {
-	char	*cat;
 	long	rem;
 
 	rem = 1;
-	cat = "-2147483648";
-	if (nbr == -2147483648)
-	{
-		b = -1;
-		ptr = ft_strnew(12);
-		while (++b < 11)
-			ptr[b] = cat[b];
-		return (ptr);
-	}
 	while (len > 0)
 	{
 		ptr[b++] = (nbr / ft_power(len, 10)) + 48;
@@ -37,7 +27,7 @@ static char	*find_value(char *ptr, long nbr, long len, long b)
 	return (ptr);
 }
 
-char		*ft_itoa(int n)
+char		*ft_ltoa(long n)
 {
 	long	nbr;
 	char	*ptr;
@@ -48,8 +38,6 @@ char		*ft_itoa(int n)
 	len = 1;
 	b = 0;
 	nbr = (long)n;
-	if ((n < 0) && n != -2147483648)
-		nbr = -nbr;
 	tmp = nbr;
 	while (tmp >= 10)
 		tmp = (nbr / ft_power(len++, 10));

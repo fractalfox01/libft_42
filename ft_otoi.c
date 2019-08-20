@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_oct_to_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/03 21:04:30 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/08/03 21:10:30 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/08/19 18:32:14 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_oct_to_int_helper(char *oct, int nbr, int len, int base)
 	return (nbr);
 }
 
-int	ft_oct_to_int(char *str)
+int	ft_otoi(char *str)
 {
 	int len;
 

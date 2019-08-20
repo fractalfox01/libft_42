@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_numlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/03 22:56:44 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/08/19 18:40:07 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/08/18 14:19:35 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/08/18 17:57:02 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrev(char *str)
+int	ft_numlen(int nbr)
 {
-	int	i;
-	char *rev;
-	int	j;
+	int i;
 
-	i = ft_strlen(str);
-	rev = ft_strdup(str);
-	j = 0;
-	while (i >= 0)
+	i = 1;
+	while (nbr / 10 > 0)
 	{
-		rev[j++] = str[i - 1];
-		i--;
+		i++;
+		nbr /= 10;
 	}
-	return (rev);
+	return (i);
 }

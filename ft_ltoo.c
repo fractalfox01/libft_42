@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dec_to_oct.c                                    :+:      :+:    :+:   */
+/*   ft_ltoo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/03 21:54:02 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/08/03 23:04:43 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/08/19 17:57:30 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/08/19 17:59:39 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_dec_to_oct(int nbr)
+int	ft_ltoo(long nbr)
 {
-	int		oct;
+	long	oct;
 	char	*str;
 	char	*ret;
 	int		i;
