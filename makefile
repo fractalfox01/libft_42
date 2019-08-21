@@ -2,7 +2,7 @@ NAME= libft.a
 
 FLAGS= -Wall -Wextra -Werror
 
-SRC := $(addsuffix .c, ft_ftoa ft_otoi ft_itoo ft_ltoo ft_ltoh ft_ltoa ft_numlen ft_create_queue ft_destroy_queue ft_queue_front ft_queue_is_full \
+SRC := $(addsuffix .c, ft_itoh ft_ftoa ft_otoi ft_itoo ft_ltoo ft_ltoh ft_ltoa ft_numlen ft_create_queue ft_destroy_queue ft_queue_front ft_queue_is_full \
 	ft_dequeue ft_enqueue ft_queue_is_empty ft_queue_rear ft_hex_to_int ft_strsplit_int ft_isspace sort_list_bubble \
 	ft_get_lst_len get_n_char get_next_line ft_abs ft_strpbrk ft_iscntrl ft_isgraph ft_realloc sort_selection \
 	sort_bubble ft_lstmap ft_lstadd ft_lstiter ft_lstdel sort_bubble ft_lstdelone ft_lstnew ft_strbuild ft_power \
@@ -13,7 +13,7 @@ SRC := $(addsuffix .c, ft_ftoa ft_otoi ft_itoo ft_ltoo ft_ltoh ft_ltoa ft_numlen
 	ft_strlcat ft_strstr ft_isalnum ft_isprint ft_memcpy ft_putnbr ft_strcmp ft_strlen ft_tolower ft_isalpha ft_memccpy \
 	ft_memmove ft_putstr ft_strcpy ft_strncmp ft_toupper)
 
-OBJ := $(addsuffix .o, ft_ftoa ft_otoi ft_itoo ft_ltoo ft_ltoh ft_ltoa ft_numlen ft_create_queue ft_destroy_queue ft_queue_front ft_queue_is_full \
+OBJ := $(addsuffix .o, ft_itoh ft_ftoa ft_otoi ft_itoo ft_ltoo ft_ltoh ft_ltoa ft_numlen ft_create_queue ft_destroy_queue ft_queue_front ft_queue_is_full \
 	ft_dequeue ft_enqueue ft_queue_is_empty ft_queue_rear ft_hex_to_int ft_strsplit_int ft_isspace sort_list_bubble \
 	ft_get_lst_len get_n_char get_next_line ft_abs ft_strpbrk ft_iscntrl ft_isgraph ft_realloc sort_selection \
 	sort_bubble ft_lstmap ft_lstadd ft_lstiter ft_lstdel sort_bubble ft_lstdelone ft_lstnew ft_strbuild ft_power \

@@ -6,7 +6,7 @@
 /*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 20:09:59 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/08/20 12:59:58 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/08/21 13:13:54 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int						ft_otoi(char *str);
 char					*ft_itoo(int nbr);
 int						ft_ltoo(long nbr);
 char					*ft_ltoh(long n);
+char					*ft_itoh(int n);
 char					*ft_ltoa(long n);
 int						ft_numlen(int i);
 int						get_n_char(int fd, char **line, int size);
