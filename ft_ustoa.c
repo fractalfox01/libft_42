@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_ustoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/10 19:08:00 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/09/23 14:19:14 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/09/05 21:33:57 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/09/06 18:52:04 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_abs(int x)
+#include "libft.h"
+
+char		*ft_ustoa(unsigned short c)
 {
-	if (x < 0)
-		x *= -1;
-	return (x);
+	char			*tmp;
+	char			*ret;
+	int				i;
+	unsigned short	nbr;
+
+	tmp = ft_strnew(11);
+	i = 0;
+	nbr = c;
+	while (nbr / 10 > 0)
+	{
+		tmp[i++] = (nbr % 10) + 48;
+		nbr /= 10;
+	}
+	tmp[i++] = nbr + 48;
+	tmp[i] = '\0';
+	ret = ft_strrev(tmp);
+	ft_strdel(&tmp);
+	return (ret);
 }

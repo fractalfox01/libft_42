@@ -1,18 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/10 19:08:00 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/09/23 14:19:14 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/08/27 11:23:07 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/09/13 12:33:34 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_abs(int x)
+#include "libft.h"
+
+char	*ft_lltoa(long long n)
 {
-	if (x < 0)
-		x *= -1;
-	return (x);
+	char		*tmp;
+	char		*ret;
+	long long	i;
+	long long	nbr;
+
+	tmp = ft_strnew(21);
+	i = 0;
+	nbr = n;
+	if (nbr < 0)
+		nbr *= -1;
+	while (nbr / 10 > 0)
+	{
+		tmp[i++] = (nbr % 10) + 48;
+		nbr /= 10;
+	}
+	tmp[i++] = nbr + 48;
+	if (n < 0)
+		tmp[i++] = '-';
+	tmp[i] = '\0';
+	ret = ft_strrev(tmp);
+	ft_strdel(&tmp);
+	return (ret);
 }

@@ -6,28 +6,11 @@
 /*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 17:58:02 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/08/19 18:40:19 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/08/26 10:41:49 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char *ft_srev(char *str)
-{
-	int	i;
-	char *rev;
-	int	j;
-
-	i = ft_strlen(str);
-	rev = ft_strdup(str);
-	j = 0;
-	while (i >= 0)
-	{
-		rev[j++] = str[i - 1];
-		i--;
-	}
-	return (rev);
-}
 
 char	*ft_itoo(int nbr)
 {
@@ -50,7 +33,7 @@ char	*ft_itoo(int nbr)
 		i++;
 	}
 	str[i] = (nbr + 48);
-	ret = ft_srev(str);
-    ft_strdel(&str);
+	ret = ft_strrev(str);
+	ft_strdel(&str);
 	return (ret);
 }

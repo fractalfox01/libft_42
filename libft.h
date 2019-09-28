@@ -6,7 +6,7 @@
 /*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 20:09:59 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/08/21 13:13:54 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/09/27 17:58:38 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include "get_next_line.h"
+# include "ft_printf.h"
 
 # define FT_BLACK			"\033[0;30m"
 # define FT_RED				"\033[0;31m"
@@ -71,13 +72,23 @@ typedef struct			s_lst_var
 	int					j;
 }						t_lst_var;
 
-char					*ft_ftoa(double flt, int afterpoint);
+typedef struct			s_ftoa
+{
+	long long			n;
+	char				*int_part;
+	char				*stmp;
+	long double			d;
+	char				*ret;
+	int					dir;
+}						t_ftoa;
+
+char					*ft_ftoa(long double flt, int afterpoint);
 char					*ft_strrev(char *str);
 int						ft_otoi(char *str);
 char					*ft_itoo(int nbr);
 int						ft_ltoo(long nbr);
 char					*ft_ltoh(long n);
-char					*ft_itoh(int n);
+char					*ft_itoh(unsigned int n);
 char					*ft_ltoa(long n);
 int						ft_numlen(int i);
 int						get_n_char(int fd, char **line, int size);
@@ -170,5 +181,81 @@ int						ft_queue_is_empty(t_queue *que);
 int						ft_queue_is_full(t_queue *que);
 int						ft_queue_front(t_queue *que);
 int						ft_queue_rear(t_queue *que);
+char					*ft_ctoh(unsigned char n);
+long long				ft_atoll(char *str);
+char					*ft_lltoa(long long n);
+char					*ft_itob(int n);
+char					*ft_lftoa(long double flt, int afterpoint);
+char					*ft_lltoh(long long n);
+long long				ft_lltoo(long long nbr);
+char					*ft_stoa(short n);
+char					*ft_uctoa(unsigned char n);
+char					*ft_uitoa(unsigned int c);
+char					*ft_ulltoa(unsigned long long n);
+char					*ft_ultoa(unsigned long n);
+char					*ft_ustoa(unsigned short c);
+char					*ft_ustoh(unsigned short n);
+
+/*
+** ft_printf functions
+*/
+
+int						ft_printf(char *format, ...);
+void					glb_init(t_glb *glb);
+int						has_args(char *fmt);
+void					save_args(t_glb *glb);
+void					init_var(t_var *var, t_glb *glb);
+void					add_remainder(t_glb *glb, char *lo);
+int						parse_flags(t_alst *arglst, char *fmt);
+t_alst					*get_arg(t_glb *glb);
+int						parse_fieldwidth(t_alst *arglst, char *fmt);
+int						parse_precision(t_alst *arglst, char *fmt);
+int						parse_lengthmod(t_alst *arglst, char *fmt);
+char					*pad_left(t_alst *tmp, char *str, int a);
+char					*pad_right(t_alst *tmp, char *str);
+int						parse_conversion_spec(t_glb *glb, char *fmt, char *orig);
+int						parse_string(t_glb *glb, t_alst *arg, char *orig);
+int						parse_char(t_glb *glb, t_alst *arg, char *orig);
+int						parse_s_short(t_glb *glb, t_alst *arg, char *orig);
+int						parse_short(t_glb *glb, t_alst *arg, char *orig);
+int						parse_binary(t_glb *glb, t_alst *arg, char *orig);
+int						parse_int(t_glb *glb, t_alst *arg, char *orig);
+int						parse_int_normal(t_glb *glb, t_alst *arg, char *orig);
+int						parse_long(t_glb *glb, t_alst *arg, char *orig);
+int						parse_longlong(t_glb *glb, t_alst *arg, char *orig);
+int						parse_ptr(t_glb *glb, t_alst *arg, char *orig);
+int						parse_oct(t_glb *glb, t_alst *arg, char *orig);
+int						parse_unsigned(t_glb *glb, t_alst *arg, char *orig);
+int						parse_hex(t_glb *glb, t_alst *arg, char *orig);
+int						parse_bin(t_glb *glb, t_alst *arg, char *orig);
+int						parse_float(t_glb *glb, t_alst *arg, char *orig);
+int						parse_uint(t_glb *glb, t_alst *arg, char *orig);
+int						percent_string(t_glb *glb, t_alst *arg, char *orig);
+int						bad_percent(t_glb *glb, t_alst *arg, char *orig, char *fmt);
+int						parse_conversion(t_glb *glb, char *fmt, char *orig);
+char					*int_helper(t_alst *arg, char *padded, int c);
+char					*short_helper(t_alst *arg, char *padded, short c);
+int						int_norm_helper_1(t_alst *arg, char *orig, int c);
+void					int_norm_helper_2(t_alst *arg, char *orig, char *padded);
+char					*long_helper(t_alst *arg, char *padded, long c);
+void					ps_helper_1(t_alst *arg, char *orig);
+void					ps_helper_2(t_alst *arg, char *orig, char *buf_str);
+void					ps_helper_3(t_alst *arg, char *orig, char *buf_str);
+void					lnglng_oct_helper(t_alst *arg, long long c, int len);
+void					long_hex_helper(t_alst *arg, long c, int len);
+char					*assign_x_buf(t_alst *arg, long long c);
+void					check_case(t_glb *glb, char **str);
+void					hex_flag_find(t_alst *arg, int neg, char *orig);
+void					hex_helper_1(t_alst *arg, int a);
+void					hex_helper_2(t_glb *glb, t_alst *arg);
+void					octal_assign_1(t_alst *arg, char *pad, char *orig, int neg);
+void					octal_assign_2(t_alst *arg, char *padded, char *orig);
+char					*assign_u_buf(t_alst *arg, unsigned long long c);
+void					assign_u_arg(t_alst *arg, char *pad, int neg, char *orig);
+char					*blank_helper(char *padded);
+t_alst					*new_list(void);
+void					free_all(t_glb *glb);
+void					del_info(t_info **info);
+void					del_arg(t_alst **arg);
 
 #endif

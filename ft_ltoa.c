@@ -6,49 +6,34 @@
 /*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:47:49 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/08/19 12:53:09 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/09/13 12:36:44 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*find_value(char *ptr, long nbr, long len, long b)
+char	*ft_ltoa(long n)
 {
-	long	rem;
-
-	rem = 1;
-	while (len > 0)
-	{
-		ptr[b++] = (nbr / ft_power(len, 10)) + 48;
-		rem = (nbr % ft_power(len, 10));
-		nbr -= ft_power(len, 10) * (nbr / ft_power(len, 10));
-		len--;
-	}
-	return (ptr);
-}
-
-char		*ft_ltoa(long n)
-{
+	char	*tmp;
+	char	*ret;
+	long	i;
 	long	nbr;
-	char	*ptr;
-	long	len;
-	long	b;
-	long	tmp;
 
-	len = 1;
-	b = 0;
+	tmp = ft_strnew(21);
+	i = 0;
 	nbr = (long)n;
-	tmp = nbr;
-	while (tmp >= 10)
-		tmp = (nbr / ft_power(len++, 10));
-	if (len != 1)
-		len--;
-	ptr = ft_strnew(len + 1);
-	if (!ptr)
-		return (NULL);
+	if (nbr < 0)
+		nbr *= -1;
+	while (nbr / 10 > 0)
+	{
+		tmp[i++] = (nbr % 10) + 48;
+		nbr /= 10;
+	}
+	tmp[i++] = nbr + 48;
 	if (n < 0)
-		ptr[b++] = '-';
-	if (nbr == 0 && (ptr[b] = '0'))
-		return (ptr);
-	return (find_value(ptr, nbr, len, b));
+		tmp[i++] = '-';
+	tmp[i] = '\0';
+	ret = ft_strrev(tmp);
+	ft_strdel(&tmp);
+	return (ret);
 }

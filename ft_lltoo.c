@@ -1,18 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_lltoo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/10 19:08:00 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/09/23 14:19:14 by tvandivi         ###   ########.fr       */
+/*   Created: 2019/08/27 14:56:05 by tvandivi          #+#    #+#             */
+/*   Updated: 2019/09/21 11:50:07 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_abs(int x)
+#include "libft.h"
+
+long long	ft_lltoo(long long nbr)
 {
-	if (x < 0)
-		x *= -1;
-	return (x);
+	long long	oct;
+	char		*str;
+	char		*ret;
+	int			i;
+
+	i = 0;
+	oct = 0;
+	str = ft_strnew(30);
+	ft_bzero(str, 30);
+	while (nbr / 8 > 0)
+	{
+		if (nbr % 8 > 0)
+			str[i] = (nbr % 8) + 48;
+		else
+			str[i] = '0';
+		nbr /= 8;
+		i++;
+	}
+	str[i] = (nbr + 48);
+	ret = ft_strrev(str);
+	oct = ft_atoll(ret);
+	ft_strdel(&str);
+	return (oct);
 }

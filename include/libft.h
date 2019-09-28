@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tvandivi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tvandivi <tvandivi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 20:09:59 by tvandivi          #+#    #+#             */
-/*   Updated: 2019/03/29 18:11:24 by tvandivi         ###   ########.fr       */
+/*   Updated: 2019/09/27 16:24:27 by tvandivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct	s_ftoa
+{
+	long long	n;
+	char		*int_part;
+	char		*stmp;
+	long double	d;
+	char		*ret;
+	int			dir;
+}				t_ftoa;
 
 int					ft_abs(int nbr);
 char				*ft_strpbrk(const char *str1, const char *str2);
