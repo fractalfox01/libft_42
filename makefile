@@ -36,7 +36,7 @@ $(NAME):
 	@echo "\033[1;32mBuilding Libft..."
 	@gcc -c $(FLAGS) $(SRC)
 	@ar rc libft.a $(OBJ)
-	@mv *.o obj
+	@mv *.o objs
 
 all: $(NAME)
 
